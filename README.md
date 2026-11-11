@@ -1,11 +1,16 @@
-# QALDIRG‘OCH — файлы для CorelDRAW
+# QALDIRĞOÇ — новая узбекская латиница
 
-Готовый комплект находится в каталоге `coreldraw/`.
+Готовый комплект: `coreldraw/Qaldirgoch_CorelDRAW_bundle.zip`.
 
-- `coreldraw/Qaldirgoch_CorelDRAW_bundle.zip` — все файлы одним архивом.
-- `coreldraw/Qaldirgoch_CorelDRAW.svg` — вектор для импорта в CorelDRAW.
-- `coreldraw/Qaldirgoch_CorelDRAW.pdf` — векторный PDF, 300 × 300 мм.
+Обновлено написание названия: QALDIRG‘OCH → QALDIRĞOÇ. Шрифт обеих надписей: Noto Sans Display Bold. Иллюстрация и круги не изменены. Буквы переведены в кривые.
+
+- `coreldraw/Qaldirgoch_CorelDRAW.svg` — вектор для CorelDRAW, 300 × 300 мм.
+- `coreldraw/Qaldirgoch_CorelDRAW.pdf` — векторный PDF.
 - `coreldraw/Qaldirgoch_preview.png` — предпросмотр.
-- `coreldraw/source/draw.py` — исходный код построения SVG.
+- `coreldraw/source/draw.py` — исходный код.
+- `coreldraw/README.md` — описание и источники.
+- `coreldraw/SHA256SUMS.txt` — контрольные суммы.
 
-Файлы восстановлены из кода предыдущей беседы после отсутствия прежних результатов в текущей рабочей среде. Это стилизованная перерисовка. Файл CDR не создавался.
+Новая редакция узбекского алфавита: https://lex.uz/en/acts/8548754 — закон от 21.10.2026, вступает в силу через шесть месяцев после официального опубликования. Новая латиница применена по запросу пользователя.
+
+Это стилизованная векторная перерисовка. Файл CDR не создавался; SVG можно открыть в CorelDRAW и сохранить как CDR.

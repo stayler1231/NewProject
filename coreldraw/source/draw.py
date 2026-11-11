@@ -14,7 +14,7 @@ def group(t,id=None):add(f'<g transform="{t}"'+(f' id="{id}"' if id else '')+'>'
 def end():add('</g>')
 def line(d,c,w=3):path(d,'none',c,w)
 ink='#493934'; skin='#fff1d4'; shadow='#efc798'; hair='#ffe43d'; orange='#f69818'; red='#ec2328'; blue='#1867b4'; green='#35b94b'
-add('''<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="300mm" height="300mm" viewBox="0 0 1280 1280"><title>QALDIRG‘OCH — 479-SONLI DMTT</title><desc>Vector reconstruction from a low-resolution reference. All lettering is outlined. Illustrative details are redrawn and simplified.</desc><defs><clipPath id="sceneclip"><circle cx="640" cy="632" r="405"/></clipPath></defs>''')
+add('''<svg xmlns="http://www.w3.org/2000/svg" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="300mm" height="300mm" viewBox="0 0 1280 1280"><title>QALDIRĞOÇ — 479-SONLI DMTT</title><desc>Vector reconstruction from a low-resolution reference. All lettering is outlined. Illustrative details are redrawn and simplified.</desc><defs><clipPath id="sceneclip"><circle cx="640" cy="632" r="405"/></clipPath></defs>''')
 ell(640,640,635,635,'#fffde0','#c94c11',4)
 ell(640,640,627,627,'none','#ff9b24',7)
 ell(640,632,426,426,'#ff8519','#ec6014',6)
@@ -137,7 +137,7 @@ path('M657 908L687 902L704 911L674 920Z','#ffed56','#b8771e',3)
 end()
 add('</g>')
 ell(640,632,416,416,'none','#fb7b15',16)
-font=FontProperties(fname='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf')
+font=FontProperties(fname='/usr/share/fonts/truetype/noto/NotoSansDisplay-Bold.ttf')
 from matplotlib.path import Path as MP
 def glyph_d(tp):
  out=[]
@@ -150,10 +150,12 @@ def arc_text(text,r,mid,span,fs,top):
  from matplotlib.textpath import TextToPath
  ttp=TextToPath()
  for ch in text: widths.append(ttp.get_text_width_height_descent(ch,font,False)[0]*fs/font.get_size_in_points())
- total=sum(widths); scale=(r*span*pi/180)/total
+ total=sum(widths); scale=1.0
+ gap=(r*span*pi/180-total)/(len(text)-1)
+ extent=total+gap*(len(text)-1)
  pos=0
  for ch,w in zip(text,widths):
-  frac=(pos+w/2)/total-.5
+  frac=(pos+w/2)/extent-.5
   theta=mid+(frac*span if top else -frac*span)
   rad=theta*pi/180
   x=640+r*cos(rad); y=640+r*sin(rad)
@@ -163,9 +165,9 @@ def arc_text(text,r,mid,span,fs,top):
    rot=theta+90 if top else theta-90
    group(f'translate({x:.3f} {y:.3f}) rotate({rot:.3f}) scale({scale:.5f} -1) translate({-w/2:.4f} 0)')
    path(d,'#1b0f20');end()
-  pos+=w
-add('<g id="lettering-outlined" aria-label="QALDIRG‘OCH; 479-SONLI DMTT">')
-arc_text('QALDIRG‘OCH',473,-90,151,171,True)
+  pos+=w+gap
+add('<g id="lettering-outlined" aria-label="QALDIRĞOÇ; 479-SONLI DMTT">')
+arc_text('QALDIRĞOÇ',468,-90,149,156,True)
 arc_text('479-SONLI DMTT',565,90,135,146,False)
 end()
 add('</svg>')
